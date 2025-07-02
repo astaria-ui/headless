@@ -1,0 +1,34 @@
+---
+import type { HTMLAttributes, HTMLTag, Polymorphic } from "astro/types";
+import { mergeClassList } from "@astaria/merge-props";
+
+export type VisuallyHiddenProps<Tag extends HTMLTag = "span"> = Polymorphic<
+  HTMLAttributes<Tag> & { as: Tag }
+>;
+
+const {
+  as: Tag = "span",
+  ["class:list"]: classes,
+  ...props
+}: VisuallyHiddenProps = Astro.props;
+
+const mergedClassList = mergeClassList("Aui-VisuallyHidden-root", classes);
+---
+
+<Tag {...props} class:list={mergedClassList} />
+
+<style>
+  .Aui-VisuallyHidden-root {
+    position: absolute;
+    border: 0px;
+    width: 1px;
+    height: 1px;
+    padding: 0px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    word-wrap: normal;
+    contain: paint;
+  }
+</style>

@@ -1,0 +1,14 @@
+{
+  "extends": "astro/tsconfigs/strict",
+  "include": [".astro/types.d.ts", "**/*"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@astaria/merge-props": ["./merge-props/index.ts"],
+      "@astaria/visually-hidden": ["./visually-hidden/index.ts"],
+      "@astaria/accessible-icon": ["./accessible-icon/index.ts"]
+    }
+  }
+}
