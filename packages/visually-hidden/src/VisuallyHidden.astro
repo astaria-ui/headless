@@ -2,9 +2,8 @@
 import type { HTMLAttributes, HTMLTag, Polymorphic } from "astro/types";
 import { mergeClassList } from "@astaria/merge-props";
 
-export type VisuallyHiddenProps<Tag extends HTMLTag = "span"> = Polymorphic<
-  HTMLAttributes<Tag> & { as: Tag }
->;
+export type VisuallyHiddenProps<Tag extends HTMLTag | undefined = "span"> =
+  Polymorphic<HTMLAttributes<Tag> & { as: Tag }>;
 
 const {
   as: Tag = "span",

@@ -1,12 +1,14 @@
 ---
+import type { HTMLAttributes } from "astro/types";
+import VisuallyHidden from "@astaria/visually-hidden";
+
 // Write your component code in this file!
-interface Props {
-  /**
-   * The accessible label for the icon. This label will be visually hidden but announced to screen
-   * reader users, similar to `alt` text for `img` tags.
-   */
+export type AccessibleIconProps = HTMLAttributes<"slot"> & {
   label?: string;
-}
+};
+
+const { label, ...props }: AccessibleIconProps = Astro.props;
 ---
 
-<div><slot /></div>
+<slot {...props} aria-hidden="true" tabindex="-1" />
+{label && <VisuallyHidden>{label}</VisuallyHidden>}
