@@ -6,17 +6,21 @@ type ClassListInput =
   | Iterable<any>
   | undefined;
 
-function normalizeClassList(input: ClassListInput): (string | Record<string, boolean>)[] {
-  if (typeof input === 'string') {
-    return input.split(' ').filter(Boolean);
+function normalizeClassList(
+  input: ClassListInput
+): (string | Record<string, boolean>)[] {
+  if (typeof input === "string") {
+    return input.split(" ").filter(Boolean);
   }
   if (Array.isArray(input)) {
-    return input.flatMap(item => normalizeClassList(item));
+    return input.flatMap((item) => normalizeClassList(item));
   }
-  if (typeof input === 'object' && input !== null) {
+  if (typeof input === "object" && input !== null) {
     if (Symbol.iterator in input) {
       // Handle Iterable<string> or Iterable<any>
-      return Array.from(input as Iterable<any>).flatMap(item => normalizeClassList(item));
+      return Array.from(input as Iterable<any>).flatMap((item) =>
+        normalizeClassList(item)
+      );
     }
     // Handle Record<string, boolean> or Record<any, any>
     return [input as Record<string, boolean>];
@@ -24,7 +28,7 @@ function normalizeClassList(input: ClassListInput): (string | Record<string, boo
   return [];
 }
 
-export function mergeClassList(
+export function createClassList(
   existingClassList: ClassListInput,
   newClass: ClassListInput
 ): (string | Record<string, boolean>)[] {

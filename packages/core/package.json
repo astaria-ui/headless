@@ -1,5 +1,5 @@
 {
-  "name": "merge-props",
+  "name": "@astaria/core",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -14,9 +14,13 @@
   ],
   "scripts": {},
   "devDependencies": {
-    "astro": "^5.10.2"
+    "astro": "^5.10.2",
+    "nanostores": "^1.0.1",
+    "@sinclair/typebox": ">=0.34.37"
   },
   "peerDependencies": {
-    "astro": "^4.0.0"
+    "astro": ">=4.0.0",
+    "nanostores": ">=1.0.0",
+    "@sinclair/typebox": ">=0.34.37"
   }
 }

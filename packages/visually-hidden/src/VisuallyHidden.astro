@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes, HTMLTag, Polymorphic } from "astro/types";
-import { mergeClassList } from "@astaria/merge-props";
+import { createClassList } from "@astaria/core";
 
 export type VisuallyHiddenProps<Tag extends HTMLTag | undefined = "span"> =
   Polymorphic<HTMLAttributes<Tag> & { as: Tag }>;
@@ -9,9 +9,9 @@ const {
   as: Tag = "span",
   ["class:list"]: classes,
   ...props
-}: VisuallyHiddenProps = Astro.props;
+} = Astro.props as VisuallyHiddenProps;
 
-const mergedClassList = mergeClassList("Aui-VisuallyHidden-root", classes);
+const mergedClassList = createClassList("Aui-VisuallyHidden-root", classes);
 ---
 
 <Tag {...props} class:list={mergedClassList} />
