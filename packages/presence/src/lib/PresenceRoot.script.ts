@@ -13,20 +13,16 @@ class Presence extends HTMLElement {
   constructor() {
     super();
     this.#shadow = this.attachShadow({ mode: 'open' });
-    this.#shadow.innerHTML = `
-      <style>
-        :host {
-          display: contents; /* Important: Allows the host to not interfere with layout */
-        }
-        :host([present="false"]) {
-          display: none;
-        }
-      </style>
-      <slot></slot>
-    `;
   }
 
   connectedCallback() {
+    const template = document.getElementById(
+      "astaria-presence-root-template"
+    ) as HTMLTemplateElement;
+
+    if (template) {
+      this.#shadow.appendChild(template.content.cloneNode(true));
+    }
     this.style.display = this.#present ? '' : 'none';
   }
 

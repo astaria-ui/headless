@@ -11,8 +11,18 @@ const Primitive = PresenceComponentNames.PresenceRoot;
 const { present, ...rest } = Astro.props;
 ---
 
+<template id="astaria-presence-root-template">
+  <style>
+    :host {
+      display: contents; /* Important: Allows the host to not interfere with layout */
+    }
+    :host([present="false"]) {
+      display: none;
+    }
+  </style>
+  <slot></slot>
+</template>
+
 <astaria-presence-root {...rest} present={present}>
   <slot />
 </astaria-presence-root>
-
-<script src="./lib/PresenceRoot.script.ts"></script>
