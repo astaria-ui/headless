@@ -7,7 +7,7 @@ import { AvatarRoot, AvatarImage, AvatarFallback } from "@astaria/avatar"; // As
 <p>Normal Avatar (loads immediately):</p>
 <AvatarRoot class="my-avatar" aria-label="User profile picture">
   <AvatarImage src="https://i.pravatar.cc/150?img=1" alt="Avatar of user 1" />
-  <AvatarFallback>JD</AvatarFallback>
+  <AvatarFallback delayMs={4000}>JD</AvatarFallback>
 </AvatarRoot>
 
 <p>Avatar with slow image (shows fallback after delay):</p>

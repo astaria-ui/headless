@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { PresenceComponentNames } from "./constants/names";
+
+interface Props extends HTMLAttributes<"div"> {
+  present: boolean;
+}
+
+const Primitive = PresenceComponentNames.PresenceRoot;
+
+const { present, ...rest } = Astro.props;
+---
+
+<astaria-presence-root {...rest} present={present}>
+  <slot />
+</astaria-presence-root>
+
+<script src="./lib/PresenceRoot.script.ts"></script>

@@ -9,6 +9,12 @@ const Primitive = AvatarComponentNames.AvatarRoot;
 const { ...rest } = Astro.props;
 ---
 
-<Primitive {...rest}><slot /></Primitive>
+<template id="astaria-avatar-root-template">
+  <slot part="root-slot" />
+</template>
+
+<Primitive {...rest}>
+  <slot />
+</Primitive>
 
 <script src="./lib/AvatarRoot.script.ts"></script>

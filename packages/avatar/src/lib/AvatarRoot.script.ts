@@ -5,12 +5,16 @@ import type { ImageLoadingStatus } from "../utils/imageLoadingStatus";
 
 export class AstariaAvatarRoot extends HTMLElement {
   #imageLoadingStatus: ImageLoadingStatus = "idle";
+  #shadowRoot: ShadowRoot;
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-    if (this.shadowRoot) {
-      this.shadowRoot.innerHTML = `<slot part="root-slot"></slot>`;
+    this.#shadowRoot = this.attachShadow({ mode: "open" });
+    if (this.#shadowRoot) {
+      const template = document.getElementById("astaria-avatar-root-template") as HTMLTemplateElement;
+      if (template) {
+        this.#shadowRoot.appendChild(template.content.cloneNode(true));
+      }
     }
   }
 

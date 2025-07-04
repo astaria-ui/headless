@@ -1,0 +1,18 @@
+---
+import { Presence as AstariaPresence } from "@astaria/presence";
+import Layout from "../layouts/Layout.astro";
+
+const isPresent = true;
+---
+
+<Layout title="Presence Demo">
+  <main>
+    <h1>Presence Demo</h1>
+    <AstariaPresence present={isPresent}>
+      <p>This content is visible because the 'present' prop is true.</p>
+    </AstariaPresence>
+    <AstariaPresence present={!isPresent}>
+      <p>This content is NOT visible because the 'present' prop is false.</p>
+    </AstariaPresence>
+  </main>
+</Layout>

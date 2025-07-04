@@ -7,20 +7,22 @@ import type { ImageLoadingStatus } from "../utils/imageLoadingStatus";
 export class AstariaAvatarFallback extends HTMLElement {
   #rootStatusUpdateHandler: ((event: Event) => void) | null = null;
   #currentImageStatus: ImageLoadingStatus = "idle";
-  #delayTimer: number | null = null;
-  #canRenderWithDelay: boolean = false;
-
-  static observedAttributes = ["delay-ms"];
+  #shadowRoot: ShadowRoot;
 
   constructor() {
     super();
-    this.attachShadow({ mode: "open" });
-    if (this.shadowRoot) {
-      this.shadowRoot.innerHTML = `<slot part="fallback-slot"></slot>`;
-    }
+    this.#shadowRoot = this.attachShadow({ mode: "open" });
   }
 
   connectedCallback() {
+    const template = document.getElementById(
+      "astaria-avatar-fallback-template"
+    ) as HTMLTemplateElement;
+
+    if (template) {
+      this.#shadowRoot.appendChild(template.content.cloneNode(true));
+    }
+
     const root = this.closest(
       AvatarComponentNames.AvatarRoot
     ) as AstariaAvatarRoot | null;
@@ -40,8 +42,6 @@ export class AstariaAvatarFallback extends HTMLElement {
       AvatarEvent.RootStatusUpdate,
       this.#rootStatusUpdateHandler!
     );
-
-    this.#startDelayTimer();
   }
 
   disconnectedCallback() {
@@ -51,17 +51,6 @@ export class AstariaAvatarFallback extends HTMLElement {
         this.#rootStatusUpdateHandler
       );
       this.#rootStatusUpdateHandler = null;
-    }
-    this.#clearDelayTimer();
-  }
-
-  attributeChangedCallback(
-    name: string,
-    oldValue: string | null,
-    newValue: string | null
-  ) {
-    if (name === "delay-ms" && oldValue !== newValue) {
-      this.#startDelayTimer();
     }
   }
 
@@ -76,32 +65,8 @@ export class AstariaAvatarFallback extends HTMLElement {
     }
   }
 
-  #startDelayTimer() {
-    this.#clearDelayTimer();
-    const delayMs = Number.parseInt(this.getAttribute("delay-ms") || "", 10);
-
-    if (!Number.isNaN(delayMs) && delayMs > 0) {
-      this.#canRenderWithDelay = false;
-      this.#delayTimer = window.setTimeout(() => {
-        this.#canRenderWithDelay = true;
-        this.#evaluateVisibility();
-      }, delayMs);
-    } else {
-      this.#canRenderWithDelay = true;
-      this.#evaluateVisibility();
-    }
-  }
-
-  #clearDelayTimer() {
-    if (this.#delayTimer !== null) {
-      window.clearTimeout(this.#delayTimer);
-      this.#delayTimer = null;
-    }
-  }
-
   #evaluateVisibility() {
-    const shouldShow =
-      this.#canRenderWithDelay && this.#currentImageStatus !== "loaded";
+    const shouldShow = this.#currentImageStatus !== "loaded";
     if (shouldShow) {
       this.setAttribute(AvatarAttributes.FallbackShow, "true");
     } else {

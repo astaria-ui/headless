@@ -6,6 +6,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@astaria/presence": ["./packages/presence/index.ts"],
       "@astaria/core": ["./packages/core/index.ts"],
       "@astaria/visually-hidden": ["./packages/visually-hidden/index.ts"],
       "@astaria/accessible-icon": ["./packages/accessible-icon/index.ts"],

@@ -1,6 +1,7 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import { AvatarComponentNames } from "./constants/names";
+import { createClassList } from "@astaria/core";
 
 interface Props extends HTMLAttributes<"div"> {
   delayMs?: number;
@@ -8,10 +9,29 @@ interface Props extends HTMLAttributes<"div"> {
 
 const Primitive = AvatarComponentNames.AvatarFallback;
 
-const { delayMs, ...rest } = Astro.props;
+const { delayMs, "class:list": classes, ...rest } = Astro.props;
+const fullClassList = createClassList(["astaria-avatar-fallback"], classes);
 ---
 
-<Primitive delay-ms={delayMs} {...rest}>
+<template id="astaria-avatar-fallback-template">
+  <style define:vars={{ delayMs: `${delayMs}ms` }}>
+    :host {
+      opacity: 0;
+    }
+
+    :host([data-image-status="loaded"]) {
+      opacity: 0;
+    }
+
+    :host([data-show="true"]) {
+      opacity: 1;
+      transition: opacity var(---delayMs) ease-in-out;
+    }
+  </style>
+  <slot part="fallback-slot" />
+</template>
+
+<Primitive data-delay-ms={delayMs} {...rest} class:list={fullClassList}>
   <slot />
 </Primitive>
 
