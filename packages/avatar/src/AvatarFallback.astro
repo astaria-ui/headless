@@ -1,0 +1,18 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { AvatarComponentNames } from "./constants/names";
+
+interface Props extends HTMLAttributes<"div"> {
+  delayMs?: number;
+}
+
+const Primitive = AvatarComponentNames.AvatarFallback;
+
+const { delayMs, ...rest } = Astro.props;
+---
+
+<Primitive delay-ms={delayMs} {...rest}>
+  <slot />
+</Primitive>
+
+<script src="./lib/AvatarFallback.script.ts"></script>

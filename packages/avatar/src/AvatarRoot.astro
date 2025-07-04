@@ -1,0 +1,14 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { AvatarComponentNames } from "./constants/names";
+
+interface Props extends HTMLAttributes<"div"> {}
+
+const Primitive = AvatarComponentNames.AvatarRoot;
+
+const { ...rest } = Astro.props;
+---
+
+<Primitive {...rest}><slot /></Primitive>
+
+<script src="./lib/AvatarRoot.script.ts"></script>

@@ -9,7 +9,8 @@
       "@astaria/core": ["./packages/core/index.ts"],
       "@astaria/visually-hidden": ["./packages/visually-hidden/index.ts"],
       "@astaria/accessible-icon": ["./packages/accessible-icon/index.ts"],
-      "@astaria/accordion": ["./packages/accordion/index.ts"]
+      "@astaria/accordion": ["./packages/accordion/index.ts"],
+      "@astaria/avatar": ["./packages/avatar/index.ts"]
     }
   }
 }

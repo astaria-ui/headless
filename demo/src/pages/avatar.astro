@@ -1,0 +1,124 @@
+---
+import { AvatarRoot, AvatarImage, AvatarFallback } from "@astaria/avatar"; // Assuming index.ts export
+---
+
+<h1>My Custom Avatars</h1>
+
+<p>Normal Avatar (loads immediately):</p>
+<AvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AvatarImage src="https://i.pravatar.cc/150?img=1" alt="Avatar of user 1" />
+  <AvatarFallback>JD</AvatarFallback>
+</AvatarRoot>
+
+<p>Avatar with slow image (shows fallback after delay):</p>
+<AvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AvatarImage
+    src="https://i.pravatar.cc/150?img=1&text=Slow+Load"
+    alt="Slow loading avatar"
+  />
+  <AvatarFallback delayMs={500}>SL</AvatarFallback>
+</AvatarRoot>
+
+<p>Avatar with broken image (always shows fallback):</p>
+<AvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AvatarImage src="/non-existent-image.jpg" alt="Broken avatar" />
+  <AvatarFallback>ER</AvatarFallback>
+</AvatarRoot>
+
+<p>Avatar with no image (always shows fallback):</p>
+<AvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AvatarFallback>NA</AvatarFallback>
+</AvatarRoot>
+
+<style is:global>
+  astaria-avatar-root {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #ccc;
+    margin: 10px;
+    font-family: sans-serif;
+    font-size: 1.2em;
+    color: #555;
+    position: relative;
+  }
+
+  astaria-avatar-image::part(image) {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  astaria-avatar-fallback::part(fallback-slot) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: #a0a0a0;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  astaria-avatar-fallback[data-show="true"]::part(fallback-slot) {
+    opacity: 1;
+  }
+
+  astaria-avatar-root[data-image-status="error"]
+    astaria-avatar-fallback::part(fallback-slot) {
+    background-color: #ffcccc;
+    color: #cc0000;
+  }
+
+  astaria-avatar-root astaria-avatar-image[data-loading-status="loading"] {
+    opacity: 0;
+  }
+  astaria-avatar-root astaria-avatar-image[data-loading-status="error"] {
+    opacity: 0;
+  }
+  astaria-avatar-root astaria-avatar-image[data-loading-status="idle"] {
+    opacity: 0;
+  }
+  astaria-avatar-root astaria-avatar-image[data-loading-status="loaded"] {
+    opacity: 1;
+  }
+
+  astaria-avatar-root[data-image-status="loading"] {
+    background-color: #e0e0e0;
+    animation: pulse 1.5s infinite ease-in-out;
+  }
+
+  astaria-avatar-root[data-image-status="error"] {
+    background-color: #ffcccc;
+    color: #cc0000;
+  }
+
+  astaria-avatar-root[data-image-status="idle"] {
+    background-color: #f0f0f0;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+</style>
