@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  /**
+   * An optional container where the portaled content should be appended.
+   */
+  container?: Element | DocumentFragment | null;
+}
+
+const { container, ...props } = Astro.props;
+---
+
+<astaria-portal-root container={container} {...props}>
+  <slot />
+  <script src="./lib/PortalRoot.script.ts"></script>
+</astaria-portal-root>

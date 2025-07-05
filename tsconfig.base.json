@@ -11,7 +11,8 @@
       "@astaria/visually-hidden": ["./packages/visually-hidden/index.ts"],
       "@astaria/accessible-icon": ["./packages/accessible-icon/index.ts"],
       "@astaria/accordion": ["./packages/accordion/index.ts"],
-      "@astaria/avatar": ["./packages/avatar/index.ts"]
+      "@astaria/avatar": ["./packages/avatar/index.ts"],
+      "@astaria/portal": ["./packages/portal/index.ts"]
     }
   }
 }

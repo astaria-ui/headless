@@ -1,0 +1,16 @@
+---
+interface Props {
+  dir?: "rtl" | "ltr";
+}
+
+const { dir } = Astro.props;
+---
+
+<slot />
+
+<script is:inline define:vars={{ dir }}>
+  if (!window.layout) {
+    window.layout = {};
+  }
+  window.layout.dir = dir || "ltr";
+</script>

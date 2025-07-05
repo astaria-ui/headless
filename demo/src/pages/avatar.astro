@@ -1,34 +1,34 @@
 ---
-import { AvatarRoot, AvatarImage, AvatarFallback } from "@astaria/avatar"; // Assuming index.ts export
+import { AAvatarRoot, AAvatarImage, AAvatarFallback } from "@astaria/avatar"; // Assuming index.ts export
 ---
 
 <h1>My Custom Avatars</h1>
 
 <p>Normal Avatar (loads immediately):</p>
-<AvatarRoot class="my-avatar" aria-label="User profile picture">
-  <AvatarImage src="https://i.pravatar.cc/150?img=1" alt="Avatar of user 1" />
-  <AvatarFallback delayMs={4000}>JD</AvatarFallback>
-</AvatarRoot>
+<AAvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AAvatarImage src="https://i.pravatar.cc/150?img=1" alt="Avatar of user 1" />
+  <AAvatarFallback delayMs={4000}>JD</AAvatarFallback>
+</AAvatarRoot>
 
 <p>Avatar with slow image (shows fallback after delay):</p>
-<AvatarRoot class="my-avatar" aria-label="User profile picture">
-  <AvatarImage
+<AAvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AAvatarImage
     src="https://i.pravatar.cc/150?img=1&text=Slow+Load"
     alt="Slow loading avatar"
   />
-  <AvatarFallback delayMs={500}>SL</AvatarFallback>
-</AvatarRoot>
+  <AAvatarFallback delayMs={500}>SL</AAvatarFallback>
+</AAvatarRoot>
 
 <p>Avatar with broken image (always shows fallback):</p>
-<AvatarRoot class="my-avatar" aria-label="User profile picture">
-  <AvatarImage src="/non-existent-image.jpg" alt="Broken avatar" />
-  <AvatarFallback>ER</AvatarFallback>
-</AvatarRoot>
+<AAvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AAvatarImage src="/non-existent-image.jpg" alt="Broken avatar" />
+  <AAvatarFallback>ER</AAvatarFallback>
+</AAvatarRoot>
 
 <p>Avatar with no image (always shows fallback):</p>
-<AvatarRoot class="my-avatar" aria-label="User profile picture">
-  <AvatarFallback>NA</AvatarFallback>
-</AvatarRoot>
+<AAvatarRoot class="my-avatar" aria-label="User profile picture">
+  <AAvatarFallback>NA</AAvatarFallback>
+</AAvatarRoot>
 
 <style is:global>
   astaria-avatar-root {

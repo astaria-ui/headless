@@ -5,5 +5,7 @@ import VisuallyHidden, {
   type VisuallyHiddenProps,
 } from "./src/VisuallyHidden.astro";
 
-export default VisuallyHidden;
-export { type VisuallyHiddenProps };
+const AVisuallyHidden = VisuallyHidden;
+type AVisuallyHiddenProps = VisuallyHiddenProps;
+
+export { AVisuallyHidden, type AVisuallyHiddenProps };
