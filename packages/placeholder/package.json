@@ -1,0 +1,16 @@
+{
+  "name": "@astaria/placeholder",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "vite": "^7.0.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5",
+    "hybrids": "^9"
+  }
+}

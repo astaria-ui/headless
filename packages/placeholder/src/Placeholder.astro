@@ -1,0 +1,14 @@
+---
+import type { PlaceholderProps } from "./Placeholder";
+type Props = PlaceholderProps;
+
+const props = Astro.props;
+---
+
+<astaria-placeholder {...props}> <slot /></astaria-placeholder>
+
+<script>
+  import Placeholder from "./Placeholder.ts";
+
+  customElements.define("astaria-placeholder", Placeholder);
+</script>

@@ -14,7 +14,8 @@
       "@astaria/avatar": ["./packages/avatar/index.ts"],
       "@astaria/portal": ["./packages/portal/index.ts"],
       "@astaria/focus-scope": ["./packages/focus-scope/index.ts"],
-      "@astaria/direction": ["./packages/direction/index.ts"]
+      "@astaria/direction": ["./packages/direction/index.ts"],
+      "@astaria/placeholder": ["./packages/placeholder/index.ts"]
     }
   }
 }
