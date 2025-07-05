@@ -12,13 +12,15 @@ export class AstariaAvatarImage extends HTMLElement {
 
   static observedAttributes = ["src", "alt", "referrerpolicy", "crossorigin"];
 
-constructor() {
+  constructor() {
     super();
     this.attachShadow({ mode: "open" });
     this.#imgElement = new Image();
 
     if (this.shadowRoot) {
-      const template = document.getElementById("astaria-avatar-image-template") as HTMLTemplateElement;
+      const template = document.getElementById(
+        "astaria-avatar-image-template"
+      ) as HTMLTemplateElement;
       if (template) {
         this.shadowRoot.appendChild(template.content.cloneNode(true));
       }

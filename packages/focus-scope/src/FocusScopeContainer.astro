@@ -1,0 +1,19 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  asChild?: boolean;
+}
+
+const { asChild = false, ...rest } = Astro.props;
+---
+
+{
+  asChild ? (
+    <slot part="astaria-focus-scope-container" />
+  ) : (
+    <div {...rest}>
+      <slot />
+    </div>
+  )
+}

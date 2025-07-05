@@ -12,7 +12,9 @@
       "@astaria/accessible-icon": ["./packages/accessible-icon/index.ts"],
       "@astaria/accordion": ["./packages/accordion/index.ts"],
       "@astaria/avatar": ["./packages/avatar/index.ts"],
-      "@astaria/portal": ["./packages/portal/index.ts"]
+      "@astaria/portal": ["./packages/portal/index.ts"],
+      "@astaria/focus-scope": ["./packages/focus-scope/index.ts"],
+      "@astaria/direction": ["./packages/direction/index.ts"]
     }
   }
 }

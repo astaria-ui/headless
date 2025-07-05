@@ -1,0 +1,29 @@
+---
+import { FocusScopeComponentNames } from "./constants/FocusScopeComponentNames";
+
+interface Props {
+  /**
+   * When `true`, tabbing from last item will focus first tabbable
+   * and shift+tab from first item will focus last tababble.
+   * @defaultValue false
+   */
+  loop?: boolean;
+
+  /**
+   * When `true`, focus cannot escape the focus scope via keyboard,
+   * pointer, or a programmatic focus.
+   * @defaultValue false
+   */
+  trapped?: boolean;
+}
+
+const Primitive = FocusScopeComponentNames.FocusScopeRoot;
+
+const { ...rest } = Astro.props;
+---
+
+<Primitive {...rest}>
+  <slot />
+</Primitive>
+
+<script src="./lib/FocusScopeRoot.script.ts"></script>
