@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import VisuallyHidden from "@astaria/visually-hidden";
+import { AVisuallyHidden } from "@astaria/visually-hidden";
 
 // Write your component code in this file!
 export type AccessibleIconProps = HTMLAttributes<"slot"> & {
@@ -11,4 +11,4 @@ const { label, ...props }: AccessibleIconProps = Astro.props;
 ---
 
 <slot {...props} aria-hidden="true" tabindex="-1" />
-{label && <VisuallyHidden>{label}</VisuallyHidden>}
+{label && <AVisuallyHidden>{label}</AVisuallyHidden>}

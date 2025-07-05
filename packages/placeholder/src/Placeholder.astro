@@ -1,6 +1,8 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import type { PlaceholderProps } from "./Placeholder";
-type Props = PlaceholderProps;
+
+type Props = PlaceholderProps & HTMLAttributes<"div">;
 
 const props = Astro.props;
 ---
