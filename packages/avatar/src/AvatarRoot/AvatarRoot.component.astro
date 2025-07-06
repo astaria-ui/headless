@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {}
+
+const { ...rest } = Astro.props;
+---
+
+<astaria-avatar-root {...rest}>
+  <slot />
+</astaria-avatar-root>
+
+<script>
+  import { AvatarRootCompiled } from "./AvatarRoot.hybrids";
+  if (!customElements.get("astaria-avatar-root"))
+    customElements.define("astaria-avatar-root", AvatarRootCompiled);
+</script>

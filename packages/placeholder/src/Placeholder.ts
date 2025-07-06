@@ -38,7 +38,7 @@ export type PlaceholderProps = {
     }
 );
 
-export default define.compile<PlaceholderProps>({
+export default define<PlaceholderProps>({
   tag: "astaria-placeholder",
   width: undefined,
   height: undefined,

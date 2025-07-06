@@ -1,5 +1,5 @@
 {
-  "name": "avatar",
+  "name": "@astaria/avatar",
   "version": "0.0.1",
   "type": "module",
   "exports": {
@@ -17,6 +17,8 @@
     "astro": "^5.11.0"
   },
   "peerDependencies": {
+    "typescript": "^5",
+    "hybrids": "^9",
     "astro": "^4.0.0 || ^5.0.0"
   }
 }

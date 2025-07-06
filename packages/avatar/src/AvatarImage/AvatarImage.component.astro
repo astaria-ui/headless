@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"img"> {}
+
+const { src, alt, referrerpolicy, crossorigin, ...rest } = Astro.props;
+---
+
+<astaria-avatar-image
+  src={src}
+  alt={alt}
+  referrerpolicy={referrerpolicy}
+  crossorigin={crossorigin}
+  {...rest}
+>
+</astaria-avatar-image>
+
+<script>
+  import { AvatarImageCompiled } from "./AvatarImage.hybrids";
+  if (!customElements.get("astaria-avatar-image"))
+    customElements.define("astaria-avatar-image", AvatarImageCompiled);
+</script>

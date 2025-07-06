@@ -1,13 +1,20 @@
 {
   "name": "@astaria/placeholder",
+  "version": "0.0.1",
   "module": "index.ts",
   "type": "module",
-  "scripts": {
-    "build": "vite build"
+  "exports": {
+    ".": "./index.ts"
   },
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "keywords": [
+    "astro-component"
+  ],
   "devDependencies": {
-    "@types/bun": "latest",
-    "vite": "^7.0.2"
+    "astro": "^5.11.0"
   },
   "peerDependencies": {
     "typescript": "^5",

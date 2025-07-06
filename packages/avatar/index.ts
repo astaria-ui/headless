@@ -1,6 +1,6 @@
-import AvatarFallback from "./src/AvatarFallback.astro";
-import AvatarImage from "./src/AvatarImage.astro";
-import AvatarRoot from "./src/AvatarRoot.astro";
+import AvatarFallback from "./src/AvatarFallback/AvatarFallback.component.astro";
+import AvatarImage from "./src/AvatarImage/AvatarImage.component.astro";
+import AvatarRoot from "./src/AvatarRoot/AvatarRoot.component.astro";
 
 const AAvatarFallback = AvatarFallback;
 const AAvatarImage = AvatarImage;

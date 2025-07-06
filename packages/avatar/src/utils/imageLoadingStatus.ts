@@ -1,4 +1,5 @@
-export type ImageLoadingStatus = "idle" | "loading" | "loaded" | "error";
+import type {ImageLoadingStatus} from "../types";
+
 
 /**
  * Manages the loading status of an HTMLImageElement.

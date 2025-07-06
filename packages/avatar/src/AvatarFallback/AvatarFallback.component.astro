@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  delayMs?: number;
+}
+
+const { delayMs, ...rest } = Astro.props;
+---
+
+<astaria-avatar-fallback data-delay-ms={delayMs} {...rest}>
+  <slot />
+</astaria-avatar-fallback>
+
+<script>
+  import { AvatarFallbackCompiled } from "./AvatarFallback.hybrids";
+
+  if (!customElements.get("astaria-avatar-fallback"))
+    customElements.define("astaria-avatar-fallback", AvatarFallbackCompiled);
+</script>
