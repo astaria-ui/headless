@@ -1,0 +1,17 @@
+---
+import type { HTMLAttributes } from "astro/types";
+export interface Props extends HTMLAttributes<"div"> {}
+
+const { ...props } = Astro.props;
+---
+
+<astaria-visually-hidden {...props}>
+  <slot />
+</astaria-visually-hidden>
+
+<script>
+  import { VisuallyHiddenCompiled } from "./VisuallyHidden.hybrids";
+  if (!customElements.get("astaria-visually-hidden")) {
+    customElements.define("astaria-visually-hidden", VisuallyHiddenCompiled);
+  }
+</script>
