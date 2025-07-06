@@ -29,13 +29,8 @@ export const AvatarRoot: Component<AvatarRootProps> = {
   render: () => {
     return html` <slot />`.css`
       :host {
-        width: 100%;
-        height: 100%;
         aspect-ratio: 1/1;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        contain: paint;
+        display: block;
         position: relative;
       }
     `;

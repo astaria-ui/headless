@@ -50,12 +50,13 @@ export const AvatarImage: Component<AvatarImageProps> = {
     <img part="img" onload="${handleOnLoad}" onerror="${handleOnError}" src="${src}" alt="${alt}"></img>`
       .css`
         :host {
-            width: 100%;
-            height: 100%;
-            transition: opacity 200ms ease-in-out;
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            transition: opacity 200ms ease-in-out;
         }
         :host::part(img) {
           width: 100%;

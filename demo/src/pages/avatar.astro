@@ -5,13 +5,10 @@ import { AAvatarRoot, AAvatarImage, AAvatarFallback } from "@astaria/avatar"; //
 <h1>My Custom Avatars</h1>
 <link
   rel="stylesheet"
-  href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+  href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css"
 />
 <p>Normal Avatar (loads immediately):</p>
-<AAvatarRoot
-  class="my-avatar w-16 aspect-square"
-  aria-label="User profile picture"
->
+<AAvatarRoot class="my-avatar w-16 h-16" aria-label="User profile picture">
   <AAvatarImage src="https://i.pravatar.cc/150?img=1" alt="Avatar of user 1" />
   <AAvatarFallback delayMs={4000}>JD</AAvatarFallback>
 </AAvatarRoot>

@@ -31,13 +31,12 @@ export const AvatarFallback: Component<AvatarFallbackProps> = {
   },
   root: parent(AvatarRootHybrid),
   render: ({ dataShow }) => {
-    return html`
-      <slot part="fallback" data-show="${dataShow}" />
-    `.css`
+    return html` <slot part="fallback" data-show="${dataShow}" /> `.css`
       :host {
         position: absolute;
         top: 0;
         left: 0;
+        z-index: 1;
         width: 100%;
         height: 100%;
       }
