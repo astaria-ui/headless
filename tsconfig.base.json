@@ -21,7 +21,8 @@
         "./packages/accessible-icon/src/hybrids.ts"
       ],
       "@astaria/accordion": ["./packages/accordion/index.ts"],
-      "@astaria/avatar": ["./packages/avatar/index.ts"],
+      "@astaria/avatar/astro": ["./packages/avatar/src/astro.ts"],
+      "@astaria/avatar/hybrids": ["./packages/avatar/src/hybrids.ts"],
       "@astaria/portal": ["./packages/portal/index.ts"],
       "@astaria/focus-scope": ["./packages/focus-scope/index.ts"],
       "@astaria/direction": ["./packages/direction/index.ts"],
