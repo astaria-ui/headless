@@ -1,0 +1,20 @@
+---
+interface Props {
+  direction?: "rtl" | "ltr";
+}
+
+const { direction } = Astro.props;
+---
+
+<astaria-direction-provider direction={direction}>
+  <slot />
+</astaria-direction-provider>
+
+<script>
+  import { DirectionProviderCompiled } from "./DirectionProvider.hybrids";
+  if (!customElements.get("astaria-direction-provider"))
+    customElements.define(
+      "astaria-direction-provider",
+      DirectionProviderCompiled
+    );
+</script>
