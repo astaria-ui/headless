@@ -14,7 +14,12 @@
       "@astaria/visually-hidden/hybrids": [
         "./packages/visually-hidden/src/hybrids.ts"
       ],
-      "@astaria/accessible-icon": ["./packages/accessible-icon/index.ts"],
+      "@astaria/accessible-icon/astro": [
+        "./packages/accessible-icon/src/astro.ts"
+      ],
+      "@astaria/accessible-icon/hybrids": [
+        "./packages/accessible-icon/src/hybrids.ts"
+      ],
       "@astaria/accordion": ["./packages/accordion/index.ts"],
       "@astaria/avatar": ["./packages/avatar/index.ts"],
       "@astaria/portal": ["./packages/portal/index.ts"],

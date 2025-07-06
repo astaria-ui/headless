@@ -1,0 +1,22 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { AVisuallyHidden } from "@astaria/visually-hidden/astro";
+
+export type AccessibleIconProps = HTMLAttributes<"slot"> & {
+  label?: string;
+};
+
+const { label, ...props }: AccessibleIconProps = Astro.props;
+---
+
+<astaria-accessible-icon {...props}>
+  <slot />
+  {label && <AVisuallyHidden>{label}</AVisuallyHidden>}
+</astaria-accessible-icon>
+
+<script>
+  import { AccessibleIconCompiled } from "./AccessibleIcon.hybrids";
+
+  if (!customElements.get("astaria-accessible-icon"))
+    customElements.define("astaria-accessible-icon", AccessibleIconCompiled);
+</script>
