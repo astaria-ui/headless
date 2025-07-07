@@ -1,20 +1,18 @@
 ---
-import { AFocusScopeContainer, AFocusScopeRoot } from "@astaria/focus-scope";
+import { AFocusScope } from "@astaria/focus-scope/astro";
 ---
 
 <main>
   <h1>Focus Scope Demo</h1>
 
-  <AFocusScopeRoot loop trapped>
-    <AFocusScopeContainer asChild>
-      <div>
-        <button>First Tabbable</button>
-        <input type="text" />
-        <a href="#">Link</a>
-        <button>Last Tabbable</button>
-      </div>
-    </AFocusScopeContainer>
-  </AFocusScopeRoot>
+  <AFocusScope loop trapped>
+    <div>
+      <button>First Tabbable</button>
+      <input type="text" />
+      <a href="#">Link</a>
+      <button>Last Tabbable</button>
+    </div>
+  </AFocusScope>
 
   <p>Outside Focus Scope</p>
   <button>Outside Button</button>

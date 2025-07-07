@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"div"> {
+  loop?: boolean;
+  trapped?: boolean;
+}
+
+const { loop = false, trapped = false, ...rest } = Astro.props;
+---
+
+<astaria-focus-scope {loop} {trapped} {...rest}>
+  <slot />
+</astaria-focus-scope>
+
+<script>
+  import { FocusScopeCompiled } from "./FocusScope.hybrids";
+  if (!customElements.get("astaria-focus-scope"))
+    customElements.define("astaria-focus-scope", FocusScopeCompiled);
+</script>

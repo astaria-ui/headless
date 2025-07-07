@@ -1,22 +1,26 @@
 {
-  "name": "focus-scope",
+  "name": "@astaria/focus-scope",
   "version": "0.0.1",
   "type": "module",
   "exports": {
-    ".": "./index.ts"
+    "./astro": "./src/astro.ts",
+    "./hybrids": "./src/hybrids.ts"
   },
   "files": [
     "src",
-    "index.ts"
+    "src/astro.ts",
+    "src/hybrids.ts"
   ],
   "keywords": [
     "astro-component"
   ],
   "scripts": {},
   "devDependencies": {
-    "astro": "^5.11.0"
+    "astro": "^5.10.2"
   },
   "peerDependencies": {
-    "astro": "^4.0.0 || ^5.0.0"
+    "astro": "^4.0.0 || ^5.0.0",
+    "hybrids": "9",
+    "typescript": "^5"
   }
 }
