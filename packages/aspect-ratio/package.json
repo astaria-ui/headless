@@ -1,0 +1,26 @@
+{
+  "name": "aspect-ratio",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    "./astro": "./src/astro.ts",
+    "./hybrids": "./src/hybrids.ts"
+  },
+  "files": [
+    "src",
+    "src/astro.ts",
+    "src/hybrids.ts"
+  ],
+  "keywords": [
+    "astro-component"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "astro": "^5.10.2"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.0 || ^5.0.0",
+    "hybrids": "9",
+    "typescript": "^5"
+  }
+}

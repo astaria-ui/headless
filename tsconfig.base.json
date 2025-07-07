@@ -8,6 +8,10 @@
     "paths": {
       "@astaria/presence": ["./packages/presence/index.ts"],
       "@astaria/core": ["./packages/core/index.ts"],
+      "@astaria/aspect-ratio/astro": ["./packages/aspect-ratio/src/astro.ts"],
+      "@astaria/aspect-ratio/hybrids": [
+        "./packages/aspect-ratio/src/hybrids.ts"
+      ],
       "@astaria/visually-hidden/astro": [
         "./packages/visually-hidden/src/astro.ts"
       ],
